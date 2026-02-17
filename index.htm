@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style: none;
+            font-family: sans-serif;
+        }
+
+        body {
+            height: 100vh;
+
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-origin: center;
+            transform: translate(-50%, -50%);
+            width: max-content;
+        }
+
+        #calculator {
+            width: 350px;
+            height: 550px;
+            background-color: whitesmoke;
+            border-radius: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            /* padding: 20px; */
+        }
+
+        #display {
+            padding: 20px;
+        }
+
+        #display input {
+            width: 100%;
+            height: 50px;
+            text-align: right;
+            outline: none;
+            border: none;
+            border-radius: 20px;
+            padding: 12px;
+
+        }
+        .btns{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+        .btn{
+            width: 70px;
+            height: 70px;
+            border-radius: 5px;
+            /* border-radius: 100%; */
+            font-size: 20px;
+            border: 1 px solid #ccc;
+            box-shadow: 2px 2px  black;
+        }
+        .btn:active{
+            box-shadow: 2px 2px  black inset;
+
+
+        }
+        #buttons .btn:last-child{
+            background-color: orange;
+            color: white;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="calculator">
+            <div id="display">
+                <input type="text" id="display_input" placeholder="888">
+            </div>
+            <div id="buttons">
+                <div class="btns">
+                    <button onclick="clean('')" class="btn">AC</button>
+                    <button onclick="show('DEL')" class="btn"><i class="fa-solid fa-i"></i></i></button>
+                    <button onclick="show('%')" class="btn"><i class="fa-solid fa-s"></i></i></button>
+                    <button onclick="show('*')" class="btn"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div class="btns">
+                    <button onclick="show(7)" class="btn"><i class="fa-solid fa-7"></i></button>
+                    <button onclick="show(8)" class="btn"><i class="fa-solid fa-8"></i></button>
+                    <button onclick="show(9)" class="btn"><i class="fa-solid fa-9"></i></button>
+                    <button onclick="show('/')" class="btn"><i class="fa-solid fa-divide"></i></button>
+                </div>
+                <div class="btns">
+                    <button onclick="show(4)" class="btn"><i class="fa-solid fa-4"></i></button>
+                    <button onclick="show(5)" class="btn"><i class="fa-solid fa-5"></i></button>
+                    <button onclick="show(6)" class="btn"><i class="fa-solid fa-6"></i></button>
+                    <button onclick="show('-')" class="btn"><i class="fa-solid fa-minus"></i></button>
+                </div>
+                <div class="btns">
+                    <button onclick="show(1)" class="btn"><i class="fa-solid fa-1"></i></button>
+                    <button onclick="show(2)" class="btn"><i class="fa-solid fa-2"></i></button>
+                    <button onclick="show(3)" class="btn"><i class="fa-solid fa-3"></i></button>
+                    <button onclick="show('+')" class="btn"><i class="fa-solid fa-plus"></i></button>
+
+                </div>
+                <div class="btns">
+                    <button onclick="show(0)" class="btn" style="width: 150px;"><i class="fa-solid fa-0"></i></button>
+                    <button onclick="show('.')" class="btn">.</button>
+                    <button onclick="calc('=')" class="btn"><i class="fa-solid fa-equals"></i
+                        ></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const input = document.getElementById('display_input');
+        const buttons = document.querySelectorAll('.btn');
+            function clean(){
+                input.value = ''
+            }
+        function show(arg){
+            input.value += arg
+        }
+        function calc(arg){
+            if(arg === '='){
+                input.value = eval(input.value)
+            }
+        }
+       
+
+   
+
+    </script>
+
+
+</body>
+
+</html>
